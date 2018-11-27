@@ -1,0 +1,7 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Bisoft Custom Search Bar
+Bundle-SymbolicName: com.bisoft.customsearchbar;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Require-Bundle: com.sap.ip.bi.zen.rt.components.sdk.eclipse
+Bundle-Vendor: Bisoft AS

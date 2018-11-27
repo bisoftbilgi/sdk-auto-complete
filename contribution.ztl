@@ -1,0 +1,13 @@
+class com.bisoft.customsearchbar.customSearchBar extends Component {
+
+	/* Returns the value of search box. */
+	String getSearchValue() {*
+		return this.searchValue;
+	*}
+
+	/* Sets the value of search box. */
+	void setSearchValue(/* New Search Value */ String newSearchValue) {*
+		this.searchValue = newSearchValue;
+	*}
+
+}

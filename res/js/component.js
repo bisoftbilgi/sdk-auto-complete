@@ -39,6 +39,7 @@ define(["sap/designstudio/sdk/component", "css!../css/component.css"], function(
         this.init = function() {
         	this.$().addClass("customSearchBox");
         	myDiv = this.$();
+        	htmlSection();
         };
         
         
@@ -49,9 +50,15 @@ define(["sap/designstudio/sdk/component", "css!../css/component.css"], function(
 				getDatas(function(){
 					//autocomplete(document.getElementById("searchInput"), dataList);
 				});
-				htmlSection();
+				
 				/*initiate the autocomplete function on the "myInput" element, and pass along the countries array as possible autocomplete values:*/
 		      	autocomplete(document.getElementById("searchInput"), dataList);
+				if(document.getElementById("autocompleteContainer").style.width != that._width + "px");
+					document.getElementById("autocompleteContainer").style.width = that._width + "px";
+	    		if(document.getElementById("searchInput").placeholder != that._placeholder)
+	    			document.getElementById("searchInput").placeholder = that._placeholder;
+	    		if(document.getElementById("sendButton").value != that._searchText)
+	    			document.getElementById("sendButton").value = that._searchText;
         	}
 		};
 		
@@ -617,6 +624,7 @@ define(["sap/designstudio/sdk/component", "css!../css/component.css"], function(
             container.className = "nobr";
             
             var autocomplete = document.createElement('div');
+            autocomplete.id = "autocompleteContainer";
             autocomplete.className = "autocomplete";
             autocomplete.style.width= that._width + "px";
             
@@ -635,7 +643,8 @@ define(["sap/designstudio/sdk/component", "css!../css/component.css"], function(
             
             container.appendChild(autocomplete);
             container.appendChild(sendButton);
-
+            
+//            document.activeElement.append(container);
             myDiv.append(container);
 //            document.body.innetHTML = 
 //            var pageHtml =  "<div class='autocomplete' style='width:'" + that._width + "px'>" +

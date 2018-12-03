@@ -7,10 +7,10 @@ It completes the entered value with the data from datasource. The entered value 
 
 ## Screenshots
 
-![SearchBar](images/SearchBar.PNG | align=left)
-![SearchBar2](images/SearchBar2.PNG | align=left)
-![SearchBarSearching](images/Searching.PNG | align=left)
-![SearchBarGet](images/Get.PNG | align=left)
+![SearchBar](images/SearchBar.PNG)
+![SearchBar2](images/SearchBar2.PNG)
+![SearchBarSearching](images/Searching.PNG)
+![SearchBarGet](images/Get.PNG)
 
 ## Features
 

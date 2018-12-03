@@ -37,28 +37,27 @@ define(["sap/designstudio/sdk/component", "css!../css/component.css"], function(
 		
 
         this.init = function() {
-        	this.$().addClass("customSearchBox");
-        	myDiv = this.$();
+        	//this.$().addClass("customSearchBox");
+        	myDiv = this.$()[0];
         	htmlSection();
         };
         
         
 
         this.afterUpdate = function() {
-        	if(firstLoad){
-        		firstLoad = false;
 				getDatas(function(){
-					//autocomplete(document.getElementById("searchInput"), dataList);
+					/*initiate the autocomplete function on the "searchInput" element, and pass along the data array as possible autocomplete values:*/
+			      	autocomplete(document.getElementById(myDiv.id + "searchInput"), dataList);
 				});
 				
-				/*initiate the autocomplete function on the "myInput" element, and pass along the countries array as possible autocomplete values:*/
-		      	autocomplete(document.getElementById("searchInput"), dataList);
-				if(document.getElementById("autocompleteContainer").style.width != that._width + "px");
-					document.getElementById("autocompleteContainer").style.width = that._width + "px";
-	    		if(document.getElementById("searchInput").placeholder != that._placeholder)
-	    			document.getElementById("searchInput").placeholder = that._placeholder;
-	    		if(document.getElementById("sendButton").value != that._searchText)
-	    			document.getElementById("sendButton").value = that._searchText;
+			if(firstLoad){
+	        	firstLoad = false;
+				if(document.getElementById(myDiv.id + "autocompleteContainer").style.width != that._width + "px")
+					document.getElementById(myDiv.id + "autocompleteContainer").style.width = that._width + "px";
+	    		if(document.getElementById(myDiv.id + "searchInput").placeholder != that._placeholder)
+	    			document.getElementById(myDiv.id + "searchInput").placeholder = that._placeholder;
+	    		if(document.getElementById(myDiv.id + "sendButton").value != that._searchText)
+	    			document.getElementById(myDiv.id + "sendButton").value = that._searchText;
         	}
 		};
 		
@@ -624,12 +623,12 @@ define(["sap/designstudio/sdk/component", "css!../css/component.css"], function(
             container.className = "nobr";
             
             var autocomplete = document.createElement('div');
-            autocomplete.id = "autocompleteContainer";
+            autocomplete.id = myDiv.id + "autocompleteContainer";
             autocomplete.className = "autocomplete";
             autocomplete.style.width= that._width + "px";
             
             var searchInput = document.createElement('input');
-            searchInput.id = "searchInput";
+            searchInput.id = myDiv.id + "searchInput";
             searchInput.type = "text";
             searchInput.name = "customSearchBox";
             searchInput.placeholder = that._placeholder;
@@ -637,7 +636,7 @@ define(["sap/designstudio/sdk/component", "css!../css/component.css"], function(
             autocomplete.appendChild(searchInput);
             
             var sendButton = document.createElement('input');
-            sendButton.id = "sendButton";
+            sendButton.id = myDiv.id + "sendButton";
             sendButton.type = "submit";
             sendButton.value = that._searchText;
             
@@ -656,11 +655,11 @@ define(["sap/designstudio/sdk/component", "css!../css/component.css"], function(
             //pageHtml += document.body.innerHTML;
 //            document.body.innerHTML = pageHtml;
             console.log("html added");
-            document.getElementById ("sendButton").addEventListener ("click", sendSearchValue, false);
+            document.getElementById (myDiv.id + "sendButton").addEventListener ("click", sendSearchValue, false);
         }
 
         function sendSearchValue(){
-        	that._searchValue = document.getElementById("searchInput").value;
+        	that._searchValue = document.getElementById(myDiv.id + "searchInput").value;
         	console.log(that._searchValue);
         	that.firePropertiesChangedAndEvent(["searchValue"], "onClick");
         }

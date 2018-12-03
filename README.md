@@ -3,14 +3,15 @@
 [![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger)
 
 This is a search box plugin with autocomplete, developed for use in Sap Lumira Designer.
+
 It completes the entered value with the data from datasource. The entered value can be sent to other components.
 
 ## Screenshots
 
 ![SearchBar](images/SearchBar.PNG)
 ![SearchBar2](images/SearchBar2.PNG)
-![SearchBarSearching](images/Searching.PNG)
 ![SearchBarGet](images/Get.PNG)
+![SearchBarSearching](images/Searching.PNG)
 
 ## Features
 

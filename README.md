@@ -10,8 +10,8 @@ It completes the entered value with the data from datasource. The entered value 
 
 ![SearchBar](images/SearchBar.PNG)
 ![SearchBar2](images/SearchBar2.PNG)
-![SearchBarGet](images/Get.PNG)
 ![SearchBarSearching](images/Searching.PNG)
+![SearchBarGet](images/Get.PNG)
 
 ## Features
 

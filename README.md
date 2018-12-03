@@ -7,10 +7,10 @@ It completes the entered value with the data from datasource. The entered value 
 
 ## Screenshots
 
-![SearchBar](images/SearchBar.PNG)
-![SearchBar2](images/SearchBar2.PNG)
-![SearchBarSearching](images/Searching.PNG)
-![SearchBarGet](images/Get.PNG)
+![SearchBar](images/SearchBar.PNG | align=left)
+![SearchBar2](images/SearchBar2.PNG | align=left)
+![SearchBarSearching](images/Searching.PNG | align=left)
+![SearchBarGet](images/Get.PNG | align=left)
 
 ## Features
 
@@ -45,4 +45,4 @@ Built-in sizing feature added.
 First Push
 
 ## License
-Autocomplete Search Box Component is developped by Bisoft Bilgi Tekolojileri and available freely under the MIT license.
+Autocomplete Search Box Component is developped by BiSoft Bilgi Teknolojileri and available freely under the MIT license.

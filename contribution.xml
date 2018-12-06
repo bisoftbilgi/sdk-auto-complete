@@ -48,13 +48,19 @@
 			title="Placeholder"
 			type="String"
 			tooltip="Entry placeholder for search box"
-			group="properties"/>
+			group="Display"/>
+		<property
+			id="submitColor"
+			title="Button Color"
+			type="Color"
+			tooltip="Entry Submit Button Color"
+			group="Display"/>
 		<property
 			id="searchText"
 			title="Search Text"
 			type="String"
 			tooltip="Entry search button's text"
-			group="properties"/>
+			group="Display"/>
 <!-- 		<property -->
 <!-- 			id="width" -->
 <!-- 			title="Width" -->
@@ -66,6 +72,7 @@
 			<defaultValue property="useButton">true</defaultValue>
 			<defaultValue property="placeholder">Arama</defaultValue>
 			<defaultValue property="searchText">Getir</defaultValue>
+			<defaultValue property="submitColor">#1E90FF</defaultValue>
 			<defaultValue property="width">300</defaultValue>
 			<defaultValue property="LEFT_MARGIN">40</defaultValue>
 			<defaultValue property="TOP_MARGIN">40</defaultValue>		

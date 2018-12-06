@@ -28,10 +28,11 @@ define(["sap/designstudio/sdk/component", "css!../css/component.css"], function(
 		var aGridDataAttributes = [];
 		
 		var dataList = [];
-        this._placeholder = "Arama";
+        this._placeholder = "Type something..";
         this._useButton = true;
-        this._searchText = "Getir";
+        this._searchText = "Submit";
         this._width = "300";
+        this._submitColor= "#1E90FF";
         this._searchValue;
 		var myDiv;
 		var container;
@@ -50,11 +51,12 @@ define(["sap/designstudio/sdk/component", "css!../css/component.css"], function(
 				document.getElementById(myDiv.id + "autocompleteContainer").style.width = that._width + "px";
     		if(document.getElementById(myDiv.id + "searchInput").placeholder != that._placeholder)
     			document.getElementById(myDiv.id + "searchInput").placeholder = that._placeholder;
-    		if(that._useButton && !document.getElementById(myDiv.id + "input")){
+    		if(that._useButton && !document.getElementById(myDiv.id + "sendButton")){
                 var sendButton = document.createElement('input');
                 sendButton.id = myDiv.id + "sendButton";
                 sendButton.type = "submit";
                 sendButton.value = that._searchText;
+                sendButton.style.background = that._submitColor;
                 
                 container.appendChild(sendButton);
                 document.getElementById (myDiv.id + "sendButton").addEventListener ("click", sendSearchValue, false);
@@ -792,6 +794,15 @@ define(["sap/designstudio/sdk/component", "css!../css/component.css"], function(
                 return that._searchText;
             } else {
             	that._searchText = value;
+                return this;
+            }
+        };
+        
+        this.submitColor = function(value) {
+            if (value === undefined || value == null || value == "") {
+                return that._submitColor;
+            } else {
+            	that._submitColor = value;
                 return this;
             }
         };

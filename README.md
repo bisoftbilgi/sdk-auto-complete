@@ -10,16 +10,28 @@ It completes the entered value with the data from datasource. The entered value 
 ## Screenshots
 
 ![SearchBar](images/SearchBar.PNG)
+
 ![SearchBar2](images/SearchBar2.PNG)
+
 ![SearchBarSearching](images/Searching.PNG)
+
 ![SearchBarGet](images/Get.PNG)
+
+![SearchBarGreen](images/SearchBar_green.PNG)
+
+![SearchBarRed](images/SearchBar_red.PNG)
+
+![SearchBarAutoSubmit](images/SearchBar_autosubmit.PNG)
+
+
 
 ## Features
 
     -	Autocomplete
     -	Datasource bindable
     -	Customizable labels
-    -   Autosend option
+    -	AutoSubmit option
+    -	Customizable submit button color
     -	Communicate with other Lumira components
 
 ## Installing
@@ -32,7 +44,7 @@ After the installation is complete, you can start using the following steps.
 
 First, add the component to the document.
 
-Edit Placeholder, Search Text and use Button properties.
+Edit Placeholder, Search Text, use Button and Submit Color properties.
 (If you want to click the button to send the data, use the "use Button" property to true.
 If you want to automatically send the selected value, you can set it to false. )
 
@@ -47,7 +59,8 @@ The default onClick function is this.getSearchValue() and is used to fetch the e
 
 ## Changelogs
 ##### 06/12/2018
-Added Autosend option
+Added AutoSubmit option
+Added submit button color customization feature
 ##### 03/12/2018
 Fixed multiple components problem
 Added deployable feature

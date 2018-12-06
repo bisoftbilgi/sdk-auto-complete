@@ -40,6 +40,7 @@ After downloading customSearchBarFeature.zip, you can follow SAP Developer Guide
 https://help.sap.com/viewer/c6b865deccde49b1b3572398ceabf0b6/2.0.2.0/en-US/48071e6e43af48d88cb00bab753fce49.html
 
 ## Usage
+
 After the installation is complete, you can start using the following steps.
 
 First, add the component to the document.
@@ -58,18 +59,31 @@ You can use the component's onClick feature to communicate with other components
 The default onClick function is this.getSearchValue() and is used to fetch the entered value.
 
 ## Changelogs
+
 ##### 06/12/2018
+
 Added AutoSubmit option
+
 Added submit button color customization feature
+
 ##### 03/12/2018
+
 Fixed multiple components problem
+
 Added deployable feature
+
 Updated Readme
+
 ##### 28/11/2018
+
 Fixed issue not appearing in dialog box.
+
 Built-in sizing feature added.
+
 ##### 27/11/2018
+
 First Push
 
 ## License
+
 Autocomplete Search Box Component is developped by BiSoft Bilgi Teknolojileri and available freely under the MIT license.

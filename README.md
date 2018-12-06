@@ -1,6 +1,7 @@
 # Autocomplete Search Bar for SAP Lumira Designer
 
 [![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger)
+![License](https://camo.githubusercontent.com/d0e25b09a82bc4bfde9f1e048a092752eebbb4f3/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f6c6963656e73652d4d49542d626c75652e7376673f7374796c653d666c6174)
 
 This is a search box plugin with autocomplete, developed for use in Sap Lumira Designer.
 
@@ -18,6 +19,7 @@ It completes the entered value with the data from datasource. The entered value 
     -	Autocomplete
     -	Datasource bindable
     -	Customizable labels
+    -   Autosend option
     -	Communicate with other Lumira components
 
 ## Installing
@@ -27,14 +29,25 @@ https://help.sap.com/viewer/c6b865deccde49b1b3572398ceabf0b6/2.0.2.0/en-US/48071
 
 ## Usage
 After the installation is complete, you can start using the following steps.
+
 First, add the component to the document.
+
+Edit Placeholder, Search Text and use Button properties.
+(If you want to click the button to send the data, use the "use Button" property to true.
+If you want to automatically send the selected value, you can set it to false. )
+
 Select the column to search for by specifying a new datasource.
+
 Connect the component with the created datasource.
+
 You can now use the auto-complete feature.
+
 You can use the component's onClick feature to communicate with other components.
 The default onClick function is this.getSearchValue() and is used to fetch the entered value.
 
 ## Changelogs
+##### 06/12/2018
+Added Autosend option
 ##### 03/12/2018
 Fixed multiple components problem
 Added deployable feature

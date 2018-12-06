@@ -30,6 +30,15 @@
 			type="ScriptText"
 			group="Events"/>
 		<property
+			id="useButton"
+			title="Use Button"
+			type="boolean"
+			tooltip="Use button to send value"
+			group="Display" >
+<!-- 			<possibleValue title="GET">GET</possibleValue> -->
+<!-- 			<possibleValue title="POST">POST</possibleValue> -->
+		</property>
+		<property
 			id="searchValue"
 			title="Search Value"
 			type="String"
@@ -46,14 +55,15 @@
 			type="String"
 			tooltip="Entry search button's text"
 			group="properties"/>
-		<property
-			id="width"
-			title="Width"
-			type="int"
-			tooltip="Entry search box's width"
-			group="properties"/>
+<!-- 		<property -->
+<!-- 			id="width" -->
+<!-- 			title="Width" -->
+<!-- 			type="int" -->
+<!-- 			tooltip="Entry search box's width" -->
+<!-- 			group="properties"/> -->
 		<initialization>
 			<defaultValue property="onClick">this.getSearchValue();</defaultValue>
+			<defaultValue property="useButton">true</defaultValue>
 			<defaultValue property="placeholder">Arama</defaultValue>
 			<defaultValue property="searchText">Getir</defaultValue>
 			<defaultValue property="width">300</defaultValue>

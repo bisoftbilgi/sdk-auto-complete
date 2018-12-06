@@ -12,7 +12,6 @@ define(["sap/designstudio/sdk/component", "css!../css/component.css"], function(
         var DATA_DIM = "data-dim-";
 		var that = this;
 		var data1 = null;
-		var firstLoad = true;
 		var headers = [];
 		var iNumColTupleElements = 0;
 		var iNumRowTupleElements = 0;
@@ -30,11 +29,12 @@ define(["sap/designstudio/sdk/component", "css!../css/component.css"], function(
 		
 		var dataList = [];
         this._placeholder = "Arama";
+        this._useButton = true;
         this._searchText = "Getir";
         this._width = "300";
         this._searchValue;
 		var myDiv;
-		
+		var container;
 
         this.init = function() {
         	//this.$().addClass("customSearchBox");
@@ -45,20 +45,28 @@ define(["sap/designstudio/sdk/component", "css!../css/component.css"], function(
         
 
         this.afterUpdate = function() {
-				getDatas(function(){
-					/*initiate the autocomplete function on the "searchInput" element, and pass along the data array as possible autocomplete values:*/
-			      	autocomplete(document.getElementById(myDiv.id + "searchInput"), dataList);
-				});
-				
-			if(firstLoad){
-	        	firstLoad = false;
-				if(document.getElementById(myDiv.id + "autocompleteContainer").style.width != that._width + "px")
-					document.getElementById(myDiv.id + "autocompleteContainer").style.width = that._width + "px";
-	    		if(document.getElementById(myDiv.id + "searchInput").placeholder != that._placeholder)
-	    			document.getElementById(myDiv.id + "searchInput").placeholder = that._placeholder;
-	    		if(document.getElementById(myDiv.id + "sendButton").value != that._searchText)
+
+			if(document.getElementById(myDiv.id + "autocompleteContainer").style.width != that._width + "px")
+				document.getElementById(myDiv.id + "autocompleteContainer").style.width = that._width + "px";
+    		if(document.getElementById(myDiv.id + "searchInput").placeholder != that._placeholder)
+    			document.getElementById(myDiv.id + "searchInput").placeholder = that._placeholder;
+    		if(that._useButton && !document.getElementById(myDiv.id + "input")){
+                var sendButton = document.createElement('input');
+                sendButton.id = myDiv.id + "sendButton";
+                sendButton.type = "submit";
+                sendButton.value = that._searchText;
+                
+                container.appendChild(sendButton);
+                document.getElementById (myDiv.id + "sendButton").addEventListener ("click", sendSearchValue, false);
+
+    			if(document.getElementById(myDiv.id + "sendButton").value != that._searchText)
 	    			document.getElementById(myDiv.id + "sendButton").value = that._searchText;
-        	}
+	    	}
+        	
+			getDatas(function(){
+				/*initiate the autocomplete function on the "searchInput" element, and pass along the data array as possible autocomplete values:*/
+		      	autocomplete(document.getElementById(myDiv.id + "searchInput"), dataList);
+			});
 		};
 		
 		function getDatas(callback){
@@ -619,7 +627,7 @@ define(["sap/designstudio/sdk/component", "css!../css/component.css"], function(
         	
             //$(myDiv).html("");
             
-            var container = document.createElement('span');
+            container = document.createElement('span');
             container.className = "nobr";
             
             var autocomplete = document.createElement('div');
@@ -635,27 +643,9 @@ define(["sap/designstudio/sdk/component", "css!../css/component.css"], function(
             
             autocomplete.appendChild(searchInput);
             
-            var sendButton = document.createElement('input');
-            sendButton.id = myDiv.id + "sendButton";
-            sendButton.type = "submit";
-            sendButton.value = that._searchText;
-            
             container.appendChild(autocomplete);
-            container.appendChild(sendButton);
             
-//            document.activeElement.append(container);
             myDiv.append(container);
-//            document.body.innetHTML = 
-//            var pageHtml =  "<div class='autocomplete' style='width:'" + that._width + "px'>" +
-//            		"<input id='searchInput' type='text' name='customSearchBox' placeholder='" + that._placeholder + "'>" +
-//            		"</div>" +
-//            		"<input id='sendButton' type='submit' value='" + that._searchText + "'>" ;
-//            $(myDiv).html(pageHtml);
-            
-            //pageHtml += document.body.innerHTML;
-//            document.body.innerHTML = pageHtml;
-            console.log("html added");
-            document.getElementById (myDiv.id + "sendButton").addEventListener ("click", sendSearchValue, false);
         }
 
         function sendSearchValue(){
@@ -681,6 +671,13 @@ define(["sap/designstudio/sdk/component", "css!../css/component.css"], function(
       	      a.setAttribute("class", "autocomplete-items");
       	      /*append the DIV element as a child of the autocomplete container:*/
       	      this.parentNode.appendChild(a);
+      	      
+      	    if(!that._useButton){
+      	      a.addEventListener("click", function(e) {
+      	    	  sendSearchValue()
+      	      });
+      	    }
+      	      
       	      /*for each item in the array...*/
       	      for (i = 0; i < arr.length; i++) {
       	    	  for(var k in arr[i]){
@@ -709,7 +706,7 @@ define(["sap/designstudio/sdk/component", "css!../css/component.css"], function(
       	  /*execute a function presses a key on the keyboard:*/
       	  inp.addEventListener("keydown", function(e) {
       	      var x = document.getElementById(this.id + "autocomplete-list");
-      	      if (x) x = x.getElementsByTagName("div");
+      	      if (x){ x = x.getElementsByTagName("div"); }
       	      if (e.keyCode == 40) {
       	        /*If the arrow DOWN key is pressed,
       	        increase the currentFocus variable:*/
@@ -768,6 +765,15 @@ define(["sap/designstudio/sdk/component", "css!../css/component.css"], function(
                 return that._searchValue;
             } else {
             	that._searchValue = value;
+                return this;
+            }
+        };
+        
+        this.useButton = function(value) {
+            if (value === undefined || value === null) {
+                return that._useButton;
+            } else {
+            	that._useButton = value;
                 return this;
             }
         };
